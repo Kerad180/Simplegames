@@ -1,0 +1,26 @@
+#horseButton {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background-color: #7AB9D1;
+    border-radius: 70px;
+    opacity: 0.9;
+    transition: 0.5s;
+    box-shadow: 0px 13px 44px -9px rgba(66, 68, 90, 1);
+}
+
+#horseButton:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#horseButton:active {
+    top: 2px;
+    box-shadow: inset 0px 13px 44px -9px rgba(66, 68, 90, 1);
+}
+
+#horseButton img {
+    width: 128px;
+    height: 128px;
+}
