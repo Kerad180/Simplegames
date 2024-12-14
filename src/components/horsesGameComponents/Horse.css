@@ -1,0 +1,10 @@
+.horse  {
+  height: 130px;
+}
+
+.horse img {
+  transition: 1s ease-in-out;
+  width: 125px;
+  height: 125px;
+}
+

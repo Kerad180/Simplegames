@@ -1,12 +1,12 @@
 import { HorseButton } from './HorseButton'
 import './Maincontent.css'
 
-export const Maincontent = () => {
+export const Maincontent = ({changeSwitch}) => {
 
 
     return(
         <div id="mainContent">
-            <HorseButton/>
+            <HorseButton changeSwitch={changeSwitch}/>
         </div>
     )
     
