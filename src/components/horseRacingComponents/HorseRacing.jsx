@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import horse from "./horseClass.jsx";
 import { Horse } from "./Horse.jsx";
 import { ReturnButton } from "../ReturnButton.jsx"
-import './Game.css';
+import './HorseRacing.css';
 
 
 
-export const RaceTracks = () => {
+export const HorseRacing = ({changeSwitch}) => {
     const [isStarted, setIsStarted] = useState(false);
     const [results, setResults] = useState([])
 
 
     const horses = [
-        new horse(1, 'Black', 'src/components/horsesGameComponents/pictures/black-horse.png'),
-        new horse(2, 'Brown', 'src/components/horsesGameComponents/pictures/brown-horse.png'),
-        new horse(3, 'Red', 'src/components/horsesGameComponents/pictures/red-horse.png')
+        new horse(1, 'Black', 'src/components/horseRacingComponents/pictures/black-horse.png'),
+        new horse(2, 'Brown', 'src/components/horseRacingComponents/pictures/brown-horse.png'),
+        new horse(3, 'Red', 'src/components/horseRacingComponents/pictures/red-horse.png')
     ]
 
    
@@ -55,7 +55,7 @@ export const RaceTracks = () => {
             </section>
 
             <aside>
-                <ReturnButton/>
+                <ReturnButton changeSwitch={changeSwitch}/>
             </aside>
         </>
     );

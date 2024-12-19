@@ -1,7 +1,7 @@
 import "./ReturnButton.css"
 
-export const ReturnButton = () => {
+export const ReturnButton = ({changeSwitch}) => {
     return(
-        <button id="returnButton"></button>
+        <button id="returnButton" onClick={() => changeSwitch(0)}>Return</button>
     )
 }

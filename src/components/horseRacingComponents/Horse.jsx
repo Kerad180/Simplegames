@@ -1,6 +1,5 @@
 import { useEffect, useReducer, useState, Component, useRef, useCallback } from 'react';
 import './Horse.css'
-import { RaceTracks } from './Game';
 
 
 

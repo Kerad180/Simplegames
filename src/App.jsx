@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Maincontent } from './components/Maincontent'
-import { RaceTracks } from './components/horsesGameComponents/Game.jsx'
+import { HorseRacing } from './components/horseRacingComponents/HorseRacing'
 import './App.css'
 
 function App() {
-  const [switchGame, setSwitchGame] = useState(1)
+  const [switchGame, setSwitchGame] = useState(0)
 
   const changeSwitch = (gameNumber) => {
     setSwitchGame(gameNumber)
@@ -13,7 +13,7 @@ function App() {
 
   switch(switchGame) {
     case 0: return (<Maincontent changeSwitch={changeSwitch}/>); break;
-    case 1: return (<RaceTracks changeSwitch={changeSwitch}/>); break;
+    case 1: return (<HorseRacing changeSwitch={changeSwitch}/>); break;
   }
 }
 
