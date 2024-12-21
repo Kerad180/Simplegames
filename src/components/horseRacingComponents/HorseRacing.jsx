@@ -19,15 +19,20 @@ export const HorseRacing = ({changeSwitch}) => {
 
    
     useEffect(() => {
-        if(results.length < 3 && isStarted) {
-            for(let i = 0; i < horses.length; i++) {
-                if(document.getElementById(horses[i].name).firstChild.attributes[2].nodeValue === 'true'){ 
-                    if(!results.includes(horses[i].name)) {
-                        setResults([...results, horses[i].name])
+        const interval = setInterval(() => {
+            if(results.length < 3 && isStarted) {
+                for(let i = 0; i < horses.length; i++) {
+                    if(document.getElementById(horses[i].name).firstChild.attributes[2].nodeValue === 'true'){ 
+                        if(!results.includes(horses[i].name)) {
+                            setResults([...results, horses[i].name])
+                        }
                     }
-                }
-            } 
-        }
+                } 
+            }
+        },1000)
+
+        return() => clearInterval(interval)
+
     })
 
     const setGame = () => {

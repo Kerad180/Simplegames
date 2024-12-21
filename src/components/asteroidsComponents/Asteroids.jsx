@@ -9,6 +9,8 @@ export const Asteroids = ({changeSwitch}) => {
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
 
+
+
     const Ship = styled.img`
     height: 100px;
     width: 100px;
@@ -30,15 +32,17 @@ export const Asteroids = ({changeSwitch}) => {
     transition: 0.5s;
     `;
 
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowLeft' && playerX > 0) setPlayerX(playerX - 30);
-      if (e.key === 'ArrowRight' && playerX < 560) setPlayerX(playerX + 30);
+      if (e.key === 'ArrowRight' && playerX < 600) setPlayerX(playerX + 30);
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [playerX]);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,23 +69,25 @@ export const Asteroids = ({changeSwitch}) => {
       setOpponents((prevOpponents) => {
         for (let opponent of prevOpponents) {
           if (
-            opponent.y + 100 >= 700 &&
-            opponent.x < playerX + 80 &&
-            opponent.x + 80 > playerX
+            opponent.y + 100 >= 600 &&
+            opponent.x < playerX + 75 &&
+            opponent.x + 75 > playerX
           ) {
             setGameOver(true);
             alert(`Game Over! Score: ${score}`);
             clearInterval(interval);
           }
         }
+
         return prevOpponents;
       });
 
-
-    },50)
+    },70)
 
     return () => clearInterval(interval);
   })
+
+
 
 
     return (

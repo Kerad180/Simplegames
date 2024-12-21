@@ -5,13 +5,6 @@ import App from './App.jsx'
 
 const element = createRoot(document.getElementById('root'));
 
-// setInterval(() => {
-//     element.render(
-//         <App />
-//     )
-// }, 1000)  
-
-
 element.render(
     <App />
 )
