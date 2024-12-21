@@ -1,0 +1,18 @@
+#gameContainer {
+    width: 700px;
+    height: 750px;
+    border: 1px solid black;
+    margin: 10px auto;
+    position: relative;
+    background-color: #F7FBFC;
+
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: red;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+}
