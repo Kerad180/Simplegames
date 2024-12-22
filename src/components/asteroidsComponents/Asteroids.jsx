@@ -8,6 +8,8 @@ export const Asteroids = ({changeSwitch}) => {
     const [opponents, setOpponents] = useState([]);
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+    const [isGameStart, setIsGameStart] = useState(false)
+
 
 
 
@@ -35,8 +37,8 @@ export const Asteroids = ({changeSwitch}) => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowLeft' && playerX > 0) setPlayerX(playerX - 30);
-      if (e.key === 'ArrowRight' && playerX < 600) setPlayerX(playerX + 30);
+      if (e.key === 'ArrowLeft' && playerX > 0) setPlayerX(playerX - 20);
+      if (e.key === 'ArrowRight' && playerX < 600) setPlayerX(playerX + 20);
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -45,61 +47,75 @@ export const Asteroids = ({changeSwitch}) => {
 
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (gameOver) return;
+    if(isGameStart) {
+      const interval = setInterval(() => {
+        if (gameOver) return;
 
-      setOpponents((prevOpponents) =>
-        prevOpponents
-          .map((opponent) => ({ ...opponent, y: opponent.y + opponent.speed }))
-          .filter((opponent) => opponent.y < 800)
-      );
+        setOpponents((prevOpponents) =>
+          prevOpponents
+            .map((opponent) => ({ ...opponent, y: opponent.y + opponent.speed }))
+            .filter((opponent) => opponent.y < 590)
+        );
 
-      setOpponents((prevOpponents) => {
-        const newOpponent = {
-          x: Math.random() * 600,
-          y: -100,
-          speed: Math.random() * 5 + 4 + score / 50,
-        };
+        setOpponents((prevOpponents) => {
+          const newOpponent = {
+            x: Math.random() * 600,
+            y: -100,
+            speed: Math.random() * 5 + 4 + score / 50,
+          };
 
-        return prevOpponents.length < 4 ? [...prevOpponents, newOpponent] : prevOpponents;
-      });
+          return prevOpponents.length < 5 ? [...prevOpponents, newOpponent] : prevOpponents;
+        });
 
-      setScore((prevScore) => prevScore + 1);
-      
-      setOpponents((prevOpponents) => {
-        for (let opponent of prevOpponents) {
-          if (
-            opponent.y + 100 >= 600 &&
-            opponent.x < playerX + 75 &&
-            opponent.x + 75 > playerX
-          ) {
-            setGameOver(true);
-            alert(`Game Over! Score: ${score}`);
-            clearInterval(interval);
+        setScore((prevScore) => prevScore + 1);
+        
+        setOpponents((prevOpponents) => {
+          for (let opponent of prevOpponents) {
+            if (
+              opponent.y + 100 >= 495 &&
+              opponent.x < playerX + 80 &&
+              opponent.x + 80 > playerX
+            ) {
+              setGameOver(true);
+              alert(`Game Over! Score: ${score}`);
+              setIsGameStart(false)
+              setScore(0)
+              setOpponents([])
+              setPlayerX(300)
+              clearInterval(interval);
+            }
           }
-        }
 
-        return prevOpponents;
-      });
+          return prevOpponents;
+        });
 
-    },70)
+      },70)
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+  }
   })
-
-
 
 
     return (
         <>
-            <div id='gameContainer'>
-                <div id='score'>Score: {score}</div>
-                <Ship src='./src/components/asteroidsComponents/spaceship.png' alt='Player ship' x={playerX}></Ship>
-                {opponents.map((opponent, index) => (
-                    <Meteor key={index} src='./src/components/asteroidsComponents/meteor.png'
-                        x={opponent.x} y={opponent.y}/>
-                ))}
+            <div id="asteroidsContainer">
+              <div className="asteroidsWall"></div>
+              <div id='gameContainer'>
+                  <div id='score'>Score: {score}</div>
+                  <Ship src='./src/components/asteroidsComponents/spaceship.png' alt='Player ship' x={playerX}></Ship>
+                  {opponents.map((opponent, index) => (
+                      <Meteor key={index} src='./src/components/asteroidsComponents/meteor.png'
+                          x={opponent.x} y={opponent.y}/>
+                  ))}
+              </div>
+              <div className="asteroidsWall"></div>
             </div>
+
+            <button id="asteroidsStartButton" 
+              style={{display: isGameStart ? "none" : "block"}}
+              onClick={() => {setIsGameStart(true), setGameOver(false)}}>
+              Start
+            </button>
         
             <ReturnButton changeSwitch={changeSwitch}/>
         </>
