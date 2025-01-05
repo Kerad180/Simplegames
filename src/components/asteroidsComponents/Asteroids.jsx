@@ -11,9 +11,6 @@ export const Asteroids = ({changeSwitch}) => {
     const [gameOver, setGameOver] = useState(false);
     const [isGameStart, setIsGameStart] = useState(false)
 
-
-
-
     const Ship = styled.img`
     height: 100px;
     width: 100px;
@@ -55,7 +52,7 @@ export const Asteroids = ({changeSwitch}) => {
         setOpponents((prevOpponents) =>
           prevOpponents
             .map((opponent) => ({ ...opponent, y: opponent.y + opponent.speed }))
-            .filter((opponent) => opponent.y < 590)
+            .filter((opponent) => opponent.y < 580)
         );
 
         setOpponents((prevOpponents) => {
@@ -112,7 +109,7 @@ export const Asteroids = ({changeSwitch}) => {
               <div className="asteroidsWall"></div>
             </div>
 
-            <div id="rules"
+            <div id="asteroidsRules"
               style={{display: isGameStart ? "none" : "block"}}>
               <p>Run away from asterodis!</p>
               <p>Press &larr; or &rarr;</p>
@@ -121,6 +118,10 @@ export const Asteroids = ({changeSwitch}) => {
                 onClick={() => {setIsGameStart(true), setGameOver(false)}}>
                 Start
               </button>
+            </div>
+
+            <div id="asteroidsEnd" style={{display: isGameStart ? "none" : "block"}}>
+                  <p>Game Over! Score: {score}</p>
             </div>
         
             <ReturnButton changeSwitch={changeSwitch}/>

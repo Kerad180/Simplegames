@@ -6,6 +6,7 @@ import './App.css'
 
 function App() {
   const [switchGame, setSwitchGame] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   const changeSwitch = (gameNumber) => {
     setSwitchGame(gameNumber)
