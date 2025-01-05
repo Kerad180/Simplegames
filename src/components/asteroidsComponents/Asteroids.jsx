@@ -1,6 +1,7 @@
 import { ReturnButton } from "../ReturnButton"
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Signature } from "../Signature";
 import './Asteroids.css'
 
 export const Asteroids = ({changeSwitch}) => {
@@ -111,13 +112,20 @@ export const Asteroids = ({changeSwitch}) => {
               <div className="asteroidsWall"></div>
             </div>
 
-            <button id="asteroidsStartButton" 
-              style={{display: isGameStart ? "none" : "block"}}
-              onClick={() => {setIsGameStart(true), setGameOver(false)}}>
-              Start
-            </button>
+            <div id="rules"
+              style={{display: isGameStart ? "none" : "block"}}>
+              <p>Run away from asterodis!</p>
+              <p>Press &larr; or &rarr;</p>
+              <button id="asteroidsStartButton"
+                style={{display: isGameStart ? "none" : "block"}}
+                onClick={() => {setIsGameStart(true), setGameOver(false)}}>
+                Start
+              </button>
+            </div>
         
             <ReturnButton changeSwitch={changeSwitch}/>
+
+            <Signature/>
         </>
     )
 }

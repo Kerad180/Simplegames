@@ -32,14 +32,30 @@
     z-index: 1000;
 }
 
-#asteroidsStartButton {
+#rules {
+    background-color: red;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: #7AB9D1;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#rules p {
+    font-size: 20px;
+    text-align: center;
+    color: #F7FBFC;
+}
+
+#asteroidsStartButton {
+    margin: auto;
+    margin-top: 10px;
     background-color: #020709;
     color: #F7FBFC;
-    padding: 40px; 
+    padding: 20px; 
+    width: 200px;
     font-size: 40px;
     border-radius: 20px;
     opacity: 0.9;

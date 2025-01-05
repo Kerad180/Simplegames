@@ -1,5 +1,6 @@
 import { HorseButton } from './HorseButton'
 import { AsteroidsButton } from './AsteroidsButton'
+import { Signature } from './Signature'
 import './Maincontent.css'
 
 export const Maincontent = ({changeSwitch}) => {
@@ -9,6 +10,7 @@ export const Maincontent = ({changeSwitch}) => {
         <div id="mainContent">
             <HorseButton changeSwitch={changeSwitch}/>
             <AsteroidsButton changeSwitch={changeSwitch}/>
+            <Signature/>
         </div>
     )
     

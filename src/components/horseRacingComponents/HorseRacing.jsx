@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import horse from "./horseClass.jsx";
 import { Horse } from "./Horse.jsx";
 import { ReturnButton } from "../ReturnButton.jsx"
+import { Signature } from "../Signature.jsx";
 import './HorseRacing.css';
 
 
@@ -40,8 +41,6 @@ export const HorseRacing = ({changeSwitch}) => {
         setResults([]) 
     }
     
-    
-
     return (            
         <>
             <div id='tracks'>
@@ -62,6 +61,8 @@ export const HorseRacing = ({changeSwitch}) => {
             <aside>
                 <ReturnButton changeSwitch={changeSwitch}/>
             </aside>
+
+            <Signature/>
         </>
     );
 }
