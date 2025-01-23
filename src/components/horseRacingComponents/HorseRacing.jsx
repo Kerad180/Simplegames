@@ -33,7 +33,6 @@ export const HorseRacing = ({changeSwitch}) => {
         },1000)
 
         return() => clearInterval(interval)
-
     })
 
     const setGame = () => {
@@ -49,7 +48,7 @@ export const HorseRacing = ({changeSwitch}) => {
 
             <div id="results">
                 <ul>
-                {results.map((result) => (<li key={results.indexOf(result)}>{(results.indexOf(result)+1)+". "+result}</li>))}
+                {results.map((result, i) => (<li key={i}>{(results.indexOf(result)+1)+". "+result}</li>))}
                 </ul>       
             </div>
 

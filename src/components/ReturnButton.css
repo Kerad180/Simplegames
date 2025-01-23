@@ -8,7 +8,10 @@
     font-size: 20px;
     border-radius: 20px;
     opacity: 0.9;
-    box-shadow: 0px 0px 12px -2px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: 0px 0px 12px -2px rgba(66, 68, 90, 1);
+            box-shadow: 0px 0px 12px -2px rgba(66, 68, 90, 1);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
     transition: 0.3s;
     z-index: 3000;
 }
@@ -20,5 +23,6 @@
   
 #returnButton:active {
     bottom: 30.3px;
-    box-shadow: inset 0px 0px 12px -2px rgba(66, 68, 90, 1);
+    -webkit-box-shadow: inset 0px 0px 12px -2px rgba(66, 68, 90, 1);
+            box-shadow: inset 0px 0px 12px -2px rgba(66, 68, 90, 1);
 }

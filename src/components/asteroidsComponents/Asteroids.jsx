@@ -101,8 +101,8 @@ export const Asteroids = ({changeSwitch}) => {
               <div id='gameContainer'>
                   <div id='score'>Score: {score}</div>
                   <Ship src='./src/components/asteroidsComponents/spaceship.png' alt='Player ship' x={playerX}></Ship>
-                  {opponents.map((opponent, index) => (
-                      <Meteor key={index} src='./src/components/asteroidsComponents/meteor.png'
+                  {opponents.map((opponent, i) => (
+                      <Meteor key={i} src='./src/components/asteroidsComponents/meteor.png'
                           x={opponent.x} y={opponent.y}/>
                   ))}
               </div>
