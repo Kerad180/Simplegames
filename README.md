@@ -1,8 +1,5 @@
-# React + Vite
+It is a platform with simple games created in React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Horse Racing - Bet on which horse will win!
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Asterodids - Better run! You probably don't want your ship to crash.
